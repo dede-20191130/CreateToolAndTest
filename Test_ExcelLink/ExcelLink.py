@@ -36,7 +36,7 @@ def excelVBARun():
     # res = xlapp.Application.Run("pythonReturnValue_2", num2, str2)
     # print(str(num2) + ':' + str2)
     num2 = 1
-    str2 = 'ABC'
+    str2 = '砂糖'
     res = xlapp.Application.Run("pythonReturnValue_3", num2, str2)
     print(res)
     print(res[0])
