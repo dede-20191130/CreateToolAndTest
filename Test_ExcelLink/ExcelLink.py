@@ -1,6 +1,4 @@
 from pathlib import Path
-
-import pywintypes
 import win32com.client
 
 
