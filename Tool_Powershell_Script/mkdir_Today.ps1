@@ -10,6 +10,6 @@ if (Test-Path .\$date) {
 mkdir .\$date
 
 #powershellを停止する（Powershellのウィンドウを閉じる）
-Stop-Process -name powershell
+Stop-Process -Id $PID
 
 exit

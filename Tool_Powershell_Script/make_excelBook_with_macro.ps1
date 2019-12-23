@@ -51,7 +51,9 @@ try
         #正常終了ならばPowershellを停止する（Powershellのウィンドウを閉じる）
         if ($isSucess)
         {
-            Stop-Process -name powershell    
+           
+            # 当スクリプトを実行したコンソールウィンドウのみ閉じる（PIDは実行中のPowerShellのプロセスIDが設定される自動変数）
+            Stop-Process -Id $PID
         }
         
 
