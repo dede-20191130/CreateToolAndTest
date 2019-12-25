@@ -6,3 +6,5 @@
 ./PrivateTool/*
 PrivateTool
 PrivateTool/*
+!.gitkeep
+/PrivateTool/
