@@ -1,0 +1,10 @@
+{
+  "mailFormat": 3,
+  "senderAddress": "foo@gmail.com",
+  "receiverAddressSet": ["bar@Test.jp","bar2@Test.jp","bar3@Test.jp"],
+  "CC_AddressSet": ["bar@Test.jp","bar4@Test.jp"],
+  "BCC_AddressSet": ["bar@Test.jp","bar5@Test.jp"],
+  "title":"あいうえお",
+  "attachedFileFolderPath": "C:\\Users\\UserName\\Test",
+  "body": "〇〇様\n\nお疲れさまです。〇〇です。\n\n〇〇を送付します。\n\n以上。\n"
+}
