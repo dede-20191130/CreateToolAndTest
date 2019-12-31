@@ -1,3 +1,5 @@
+from PrivateTool.OutlookMailCreater.OutlookHandler import *
+
 def returnTest():
     return "100" + "円"
 

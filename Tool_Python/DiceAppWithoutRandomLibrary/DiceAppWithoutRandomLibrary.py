@@ -4,7 +4,7 @@ from tkinter import messagebox
 
 
 def diceResult():
-    # 時刻によりランダムな変数取得
+    # 時刻により（人間の体感時間では）ランダムな変数取得
     temp = int((time.time_ns() % 100000000) / 100)
     # ６で割った余りを取得
     myTempRmd = temp % 6
