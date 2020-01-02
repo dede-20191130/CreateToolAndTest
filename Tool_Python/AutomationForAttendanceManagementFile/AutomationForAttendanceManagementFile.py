@@ -80,7 +80,7 @@ if __name__ == '__main__':
     combo.pack(padx=5, pady=5, fill=tk.X)
 
     # ボタンの作成
-    button = tk.Button(text="表示", command=lambda: automationAMF(combo.get()))
+    button = tk.Button(text="処理開始", command=lambda: automationAMF(combo.get()))
     # ボタンの配置
     button.pack(padx=5, pady=5, )
 
