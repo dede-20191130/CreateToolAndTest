@@ -23,8 +23,6 @@ def automationAMF(path):
             if len(workbook.Worksheets(i).Name) == 6:
                 ws = workbook.Worksheets(i)
                 break
-    # ※
-    # xlapp.Visible = True
 
     # 編集
     # (1)
