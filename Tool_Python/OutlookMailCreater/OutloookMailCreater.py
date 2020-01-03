@@ -7,8 +7,8 @@ sys.path.append(r"C:\Users\UserName\PycharmProjects\CreateToolAndTest")
 import os
 import tkinter
 from tkinter import messagebox
-from PrivateTool.OutlookMailCreater.JsonHandler import JsonHandler
-from PrivateTool.OutlookMailCreater.OutlookHandler import OutlookHandler
+from Tool_Python.OutlookMailCreater.JsonHandler import JsonHandler
+from Tool_Python.OutlookMailCreater.OutlookHandler import OutlookHandler
 import traceback
 
 if __name__ == '__main__':
