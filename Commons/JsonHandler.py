@@ -11,6 +11,13 @@ class JsonHandler:
     def getParam_OneNest(self, args):
         return self.jsonData[args]
 
+    # 一次ネストのjsonデータ一覧取得
+    def getAll_OneNest(self):
+        list = []
+        for d in self.jsonData.keys():
+            list.append(d)
+        return list
+
     # 二次ネストのjsonデータ取得
     def getParam_TwoNest(self, args1, args2):
         return self.jsonData[args1][args2]
