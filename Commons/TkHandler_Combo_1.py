@@ -12,7 +12,7 @@ class TkHandler_Combo_1:
         # rootウィンドウの大きさを引数の値に
         self.root.geometry(rootGeometry)
         # クローズイベント設定
-        self.root.protocol("WM_DELETE_WINDOW", self.on_closing)
+        self.root.protocol("WM_DELETE_WINDOW", self.onClosing)
         self.frame = None
         self.label = None
         self.combo = None
@@ -62,7 +62,7 @@ class TkHandler_Combo_1:
     def mainLoop(self):
         self.root.mainloop()
 
-    def on_closing(self):
+    def onClosing(self):
         self.root.destroy()
         self.isDestroyed = True
 
