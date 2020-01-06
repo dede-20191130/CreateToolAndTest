@@ -13,9 +13,10 @@ class JsonHandler:
 
     # 一次ネストのjsonデータ一覧取得
     def getAll_OneNest(self):
-        list = []
-        for d in self.jsonData.keys():
-            list.append(d)
+        # list = []
+        # for d in self.jsonData.keys():
+        #     list.append(d)
+        list = [d for d in self.jsonData.keys()]
         return list
 
     # 二次ネストのjsonデータ取得
