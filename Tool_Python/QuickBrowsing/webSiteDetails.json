@@ -1,0 +1,49 @@
+{
+  "WebSiteA": {
+    "OnlyOpenPage": true,
+    "PageSet": [
+      "http://foobar.com",
+      "http://foobar.com",
+      "http://foobar.com",
+      "http://foobar.com",
+      "http://foobar.com",
+      "http://foobar.com",
+      "http://foobar.com",
+      "http://foobar.com",
+      "http://foobar.com"
+    ]
+  },
+  "WebSiteB": {
+    "OnlyOpenPage": true,
+    "PageSet": [
+      "http://foobar.com",
+      "http://foobar.com"
+    ]
+  },
+  "WebSiteC": {
+    "OnlyOpenPage": true,
+    "PageSet": [
+      "http://foobar.com",
+      "http://foobar.com",
+      "http://foobar.com",
+      "http://foobar.com"
+    ]
+  },
+  "WebSiteD": {
+    "OnlyOpenPage": true,
+    "PageSet": [
+      "http://foobar.com",
+      "http://foobar.com",
+      "http://foobar.com",
+      "http://foobar.com"
+    ]
+  },
+  "WebSiteE": {
+    "OnlyOpenPage": true,
+    "PageSet": [
+      "http://foobar.com",
+      "http://foobar.com",
+      "http://foobar.com"
+    ]
+  }
+}
