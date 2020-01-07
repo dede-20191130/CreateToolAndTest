@@ -45,7 +45,7 @@ def Main():
     browser = webbrowser.get(r'"' + os.getenv(r'ProgramFiles(x86)') + \
                              r'\Google\Chrome\Application\chrome.exe" %s')
     for url in jsonHandler.getParam_TwoNest(siteName, 'PageSet'):
-        browser.open_new(url)
+        browser.open(url)
 
 
 def getSiteName(argName=''):

@@ -44,14 +44,17 @@ class TkHandler_Combo_1:
     def createButton(self, myText="実行", myFunc=None):
         """引数に関数をとる"""
 
-        # # 関数の設定
-        # myFunc = myFunc or self.dummy()
+        # 関数の設定
+        myFunc = myFunc or (lambda: self.dummy())
 
         # ボタンの作成
-        if myFunc:
-            self.button = tk.Button(text=myText, command=lambda: myFunc(self.combo.get()))
-        else:
-            self.button = tk.Button(text=myText, command=lambda: self.dummy())
+        self.button = tk.Button(text=myText, command=lambda: myFunc(self.combo.get()))
+
+        # ※↑↑最初はこのように実装していた
+        # if myFunc:
+        #     self.button = tk.Button(text=myText, command=lambda: myFunc(self.combo.get()))
+        # else:
+        #     self.button = tk.Button(text=myText, command=lambda: self.dummy())
 
         # ボタンの配置
         self.button.pack(padx=5, pady=5, )
