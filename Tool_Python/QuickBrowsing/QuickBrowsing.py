@@ -29,7 +29,7 @@ def Main():
     # フォーム表示
     tkHandler = TkHandler_Combo_1('クイックブラウジング', '640x200')
     tkHandler.createFrame()
-    tkHandler.createLabel('処理をするWebサイトを選択してください。')
+    tkHandler.createLabel('一括表示をするWebサイトを選択してください。')
     tkHandler.createCombo(myValue=siteList)
     tkHandler.createButton(myFunc=getSiteName)
     tkHandler.mainLoop()
