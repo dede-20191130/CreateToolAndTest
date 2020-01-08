@@ -16,3 +16,5 @@ if __name__ == '__main__':
     # showinfo
     res = messagebox.showinfo("title", os.path.abspath(__file__))
     print("showinfo", res)
+
+    root.destroy()
