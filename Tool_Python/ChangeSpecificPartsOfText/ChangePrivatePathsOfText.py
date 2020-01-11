@@ -16,9 +16,13 @@ def Main():
         allText = pp.read_text(encoding=temp)
         # print(allText)
 
-        # 正規表現による置換
-        allText = re.sub(r'"[a-zA-Z]:[\\/].*[\."]', r'"C:/Users/UserName/MyFolder/Foo."', allText)
-        allText = re.sub(r"'[a-zA-Z]:[\\/].*[\.']", r"'C:/Users/UserName/MyFolder/Foo.'", allText)
+        # ///正規表現による置換
+        # ファイルパスの置換
+        allText = re.sub(r'"[a-zA-Z]:[\\/].*\.', r'"C:/Users/UserName/MyFolder/Foo.', allText)
+        allText = re.sub(r"'[a-zA-Z]:[\\/].*\.", r"'C:/Users/UserName/MyFolder/Foo.", allText)
+        # フォルダパスの置換
+        allText = re.sub(r'"[a-zA-Z]:[\\/](?!.*\.).*"', r'"C:/Users/UserName/MyFolder/Foo."', allText)
+        allText = re.sub(r"'[a-zA-Z]:[\\/](?!.*\.).*'", r"'C:/Users/UserName/MyFolder/Foo.'", allText)
 
         # 置換後をアウトプット
         pp.write_text(allText, encoding=temp)
