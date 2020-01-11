@@ -8,3 +8,5 @@ PrivateTool
 PrivateTool/*
 !.gitkeep
 /PrivateTool/
+PrivateTest
+PrivateTest/*
