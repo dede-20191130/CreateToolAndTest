@@ -16,8 +16,8 @@ def Main():
     isSuccess = True
 
     try:
-        mySrcPath = r'C:/Users/UserName/MyFolder/Foo.'
-        myDestpathList = [r'C:/Users/UserName/MyFolder/Bar.', r'C:/Users/UserName/MyFolder/Dede.']
+        mySrcPath = r'C:/Users/UserName/MyFolder/Foo'
+        myDestpathList = [r'C:/Users/UserName/MyFolder/Bar', r'C:/Users/UserName/MyFolder/Dede']
         movedFileList = []
 
         # 指定フォルダ直下のすべての画像ファイルを取得
