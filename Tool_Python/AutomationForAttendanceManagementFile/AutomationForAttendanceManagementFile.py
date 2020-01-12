@@ -64,7 +64,7 @@ if __name__ == '__main__':
     combo = ttk.Combobox(root, width=100, state='readonly')
 
     # リストの値を設定
-    # 勤怠管理表ファイル格納フォルダの中のすべてのファイルの名前を格納
+    # 書類ファイル格納フォルダの中のすべてのファイルの名前を格納
     myPath = r'C:\Users\UserName\Test'
     myList = []
     if os.path.isdir(myPath):
