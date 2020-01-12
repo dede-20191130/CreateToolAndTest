@@ -7,7 +7,6 @@ import chardet
 def Main():
     with pathlib.Path(os.getenv("HOMEDRIVE") + os.getenv(
             "HOMEPATH") + r'\PycharmProjects\CreateToolAndTest\PrivateTool\ChangedString.txt') as pp:
-
         # 文字コードを検出
         with open(pp.absolute(), "rb") as f:
             temp = chardet.detect(f.read())['encoding']
