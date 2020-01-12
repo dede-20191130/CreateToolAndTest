@@ -10,7 +10,8 @@ def Main():
     root = tk.Tk()
     root.withdraw()
     tmpPath = sim.askstring("oldフォルダ探索フォルダ指定", "oldフォルダを探索するフォルダパスを指定してください", initialvalue="")
-    ThrowAwayOld(tmpPath)
+    if tmpPath not in (None, ''):
+        ThrowAwayOld(tmpPath)
 
 
 def ThrowAwayOld(baseFolderPath):
