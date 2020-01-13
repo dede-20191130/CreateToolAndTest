@@ -1,15 +1,15 @@
-﻿Param( $selectedPath = ".")
+﻿Param($selectedPath = ".")
 
 try
 {
-    
+
     $selectedAbsPath = (Resolve-Path $selectedPath).Path
     $currentDir = (Resolve-Path .).Path
 
     Write-Host $selectedAbsPath + 'に対してバッチ処理します。'
 
     cd $selectedAbsPath
-        
+
     git add -N .
 
     git add .
@@ -18,7 +18,7 @@ try
     $foo = Get-Date -Format 'yyyyMMdd_HHmm'
 
     #前回のコミットに対する差分格納
-    $bar=$(git diff HEAD --stat)
+    $bar = $( git diff HEAD --stat )
 
     #文字列として連結
     $foobar = $foo + '__' + $bar
@@ -33,6 +33,8 @@ try
 catch [System.Exception]
 {
     Write-Host "エラーが発生しました。"
+    Write-Host "↓↓↓エラー詳細↓↓↓"
+    $error[0] | Out-String | Write-Host
 }
 
 finally
