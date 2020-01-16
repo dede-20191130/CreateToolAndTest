@@ -21,8 +21,9 @@ def Main():
         movedFileList = []
 
         # 指定フォルダ直下のすべての画像ファイルを取得
+        # ファイルの更新日時でソート
         if os.path.isdir(mySrcPath):
-            for file in glob.glob(mySrcPath + '\\*', recursive=False):
+            for file in sorted(glob.glob(mySrcPath + '\\*', recursive=False), key=os.path.getmtime):
                 if os.path.isfile(file):
                     movedFileList.append(file)
         else:
