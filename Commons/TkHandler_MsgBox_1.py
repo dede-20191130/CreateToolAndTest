@@ -9,6 +9,7 @@ class TkHandler_MsgBox_1:
 
     def __init__(self):
         self.root = tk.Tk()
+        self.root.attributes("-topmost", True)
         self.root.withdraw()
 
     def __del__(self):
