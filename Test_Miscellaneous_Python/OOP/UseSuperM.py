@@ -3,12 +3,15 @@ import locale
 
 
 class Parent:
+    money = 120000
+    race = 'human'
+
     def __init__(self):
         self.name = 'lemon'
         self.weight = 120
 
     def intro(self):
-        return f'私は{self.name}。{self.weight}の重量を誇る。'
+        return f'私は{self.name}。{self.weight}の重量を誇る。種族は{Parent.race}だ。'
 
 
 class Child(Parent):
@@ -24,3 +27,4 @@ obj = Child()
 print(obj.intro())
 print('')
 print(obj.intro_append())
+print(obj.race)
