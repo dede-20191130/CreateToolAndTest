@@ -1,4 +1,5 @@
 import datetime
+import locale
 
 
 class Parent:
@@ -15,7 +16,8 @@ class Child(Parent):
     #     super.__init__()
 
     def intro_append(self):
-        return f'ちょっと話がある。\n{self.intro()}\nそして今の時刻は{datetime.datetime.now()}である。'
+        locale.setlocale(locale.LC_CTYPE, "Japanese_Japan.932")
+        return f'ちょっと話がある。\n{self.intro()}\nそして今の時刻は{datetime.datetime.now().strftime("%Y年%m月%d日 %H:%M")}である。'
 
 
 obj = Child()
