@@ -15,6 +15,8 @@ class Parent:
 
 
 class Child(Parent):
+    # super.race = ''
+
     # def __init__(self):
     #     super.__init__()
 
