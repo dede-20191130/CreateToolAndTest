@@ -1,5 +1,6 @@
 # Project exclude paths
 /venv/
+node_modules
 
 #Private
 ./PrivateTool
