@@ -82,4 +82,5 @@ def RunPythonFile(root, tree):
 
 
 if __name__ == '__main__':
+    os.system(r'C:/Users/UserName/MyFolder/Foo.bat')
     main()
