@@ -1,0 +1,19 @@
+<!doctype html>
+<body>
+<div id="progress"></div>
+
+<script>
+    let i = 0;
+
+    function count() {
+        for (let j = 0; j < 1e6; j++) {
+            i++;
+            // 現在の i を <div> に表示
+            // (innerHTML については別のチャプターで説明します)
+            progress.innerHTML = i;
+        }
+    }
+
+    count();
+</script>
+</body>
