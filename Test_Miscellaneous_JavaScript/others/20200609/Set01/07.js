@@ -3,11 +3,14 @@ function work(a, b) {
 }
 
 let spy = (func) => {
-    return function () {
-        func.calls = [];
-        func.calls.push(Array.from(arguments));
+    let rtnFunc = function () {
+        // func.calls = [];
+        rtnFunc.calls.push(Array.from(arguments));
         return func.apply(this, arguments);
     }
+    rtnFunc.calls = [];
+    return rtnFunc;
+
 }
 
 work = spy(work);

@@ -7,7 +7,7 @@ let worker = {
 
 function cachingDecorator(func, hash) {
     let cache = new Map();
-    return function () {
+    return  ()=> {
         let key = hash(arguments); // (*)
         if (cache.has(key)) {
             return cache.get(key);
