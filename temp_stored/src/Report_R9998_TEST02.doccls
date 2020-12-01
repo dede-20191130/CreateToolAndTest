@@ -1,0 +1,8 @@
+﻿Option Compare Database
+Option Explicit
+
+
+Private Sub コマンド3_Click()
+    MsgBox Now
+End Sub
+

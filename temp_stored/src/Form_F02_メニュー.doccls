@@ -1,0 +1,137 @@
+﻿Option Compare Database
+Option Explicit
+
+
+
+
+
+'**************************
+'*メニューForm
+'**************************
+
+'定数
+
+'変数
+
+
+'******************************************************************************************
+'*関数名    ：Form_Load
+'*機能      ：
+'*引数(1)   ：
+'******************************************************************************************
+Private Sub Form_Load()
+    
+    '定数
+    Const FUNC_NAME As String = "Form_Load"
+    
+    '変数
+    
+    On Error GoTo ErrorHandler
+
+    
+    
+
+ExitHandler:
+
+    Exit Sub
+    
+ErrorHandler:
+
+    MsgBox "エラーが発生したため、マクロを終了します。" & _
+           vbLf & _
+           "関数名：" & FUNC_NAME & _
+           vbLf & _
+           "エラー番号：" & err.Number & vbNewLine & _
+           err.description, vbCritical, TOOL_NAME
+        
+    GoTo ExitHandler
+        
+End Sub
+
+
+
+
+
+
+'******************************************************************************************
+'*関数名    ：btn_ConfConsumptionTax_Click
+'*機能      ：
+'*引数(1)   ：
+'******************************************************************************************
+Private Sub btn_ConfConsumptionTax_Click()
+    
+    '定数
+    Const FUNC_NAME As String = "btn_ConfConsumptionTax_Click"
+    
+    '変数
+    
+    On Error GoTo ErrorHandler
+
+    '消費税率設定画面を開く
+    DoCmd.OpenForm FormName_03, , , , , , _
+        Me.Name & _
+        ";" & _
+        "consumptionTax"
+    
+    '自画面を非表示
+    Me.Visible = False
+    
+ExitHandler:
+
+    Exit Sub
+    
+ErrorHandler:
+
+    MsgBox "エラーが発生したため、マクロを終了します。" & _
+           vbLf & _
+           "関数名：" & FUNC_NAME & _
+           vbLf & _
+           "エラー番号：" & err.Number & vbNewLine & _
+           err.description, vbCritical, TOOL_NAME
+        
+    GoTo ExitHandler
+        
+End Sub
+
+
+
+
+'******************************************************************************************
+'*関数名    ：btn_ConfNumUnit_Click
+'*機能      ：
+'*引数(1)   ：
+'******************************************************************************************
+Private Sub btn_ConfNumUnit_Click()
+    
+    '定数
+    Const FUNC_NAME As String = "btn_ConfNumUnit_Click"
+    
+    '変数
+    
+    On Error GoTo ErrorHandler
+
+    '数量単位設定画面を開く
+    DoCmd.OpenForm FormName_03, , , , , , _
+        Me.Name & _
+        ";" & _
+        "numUnit"
+    
+    '自画面を非表示
+    Me.Visible = False
+    
+ExitHandler:
+
+    Exit Sub
+    
+ErrorHandler:
+
+    MsgBox "エラーが発生したため、マクロを終了します。" & _
+           vbLf & _
+           "関数名：" & FUNC_NAME & _
+           vbLf & _
+           "エラー番号：" & err.Number & vbNewLine & _
+           err.description, vbCritical, TOOL_NAME
+        
+    GoTo ExitHandler
+        
+End Sub
