@@ -1,0 +1,15 @@
+<ul id="ul">
+    <li id="one">1</li>
+    <li id="two">4</li>
+</ul>
+<script>
+    let arr;
+    for(let txt of ["2","3"]){
+        let ele = document.createElement("li");
+        ele.textContent = txt;
+        arr.push(ele);
+
+    }
+    document.querySelector("#one").after(arr[0]);
+    document.querySelector("#two").before(arr[1]);
+</script>

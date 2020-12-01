@@ -1,0 +1,32 @@
+<script>
+    let urls = [
+        'https://api.github.com/users/iliakan',
+        'https://api.github.com/users/remy',
+        'https://api.github.com/users/jeresig',
+        'https://api.github.com/users/jeresig55555555555555',
+        'http://no-such-url',
+        '/'
+    ];
+
+    // フェッチリクエストを作成
+    Promise.all(urls.map(url => fetch(url).catch(err => err)))
+        // 各レスポンスを response.json() にマップする
+        .then(responses => Promise.all(
+            responses.map(r => {
+                if (r instanceof Error) return r;
+                return r.json().catch(err => err);
+            })
+        ))
+        // 各ユーザ名を表示
+        .then(users => {  // (*)
+            console.log(users);
+            for (let user of users) {
+                if (user instanceof Error) {
+                    console.log(user);
+                } else {
+                    console.log(user.name);
+
+                }
+            }
+        });
+</script>

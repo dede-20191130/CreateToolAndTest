@@ -1,0 +1,59 @@
+<!DOCTYPE HTML>
+<html>
+<body>
+
+<ul>
+    <li>Animals
+        <ul>
+            <li>Mammals
+                <ul>
+                    <li>Cows</li>
+                    <li>Donkeys</li>
+                    <li>Dogs</li>
+                    <li>Tigers</li>
+                </ul>
+            </li>
+            <li>Other
+                <ul>
+                    <li>Snakes</li>
+                    <li>Birds</li>
+                    <li>Lizards</li>
+                </ul>
+            </li>
+        </ul>
+    </li>
+    <li>Fishes
+        <ul>
+            <li>Aquarium
+                <ul>
+                    <li>Guppy</li>
+                    <li>Angelfish</li>
+                </ul>
+            </li>
+            <li>Sea
+                <ul>
+                    <li>Sea trout</li>
+                </ul>
+            </li>
+        </ul>
+    </li>
+</ul>
+
+<script>
+    // ... your code ...
+    Array.from(document.querySelectorAll("li")).forEach((ele) => {
+        function getNumOfLi(ele) {
+            if (!ele.childElementCount) return 1;
+            let x = Array.from(ele.children).reduce((sumVal, currentEle) => {
+                return sumVal + getNumOfLi(currentEle);
+            }, 0);
+            return ele.tagName === "LI" ? x + 1 : x;
+        }
+
+        let appendNum = getNumOfLi(ele) - 1;
+        if (appendNum > 0) ele.firstChild.data += "[" + appendNum + "]";
+    })
+</script>
+
+</body>
+</html>

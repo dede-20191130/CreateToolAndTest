@@ -1,0 +1,18 @@
+<head>
+    <style> body {
+        color: red;
+        margin: 2rem;
+    } </style>
+</head>
+<body>
+aaaaa
+<script>
+    let computedStyle = getComputedStyle(document.body);
+
+    // 今やそこからマージンや色を読み取る事ができます
+
+    alert(computedStyle.marginTop); // 5px
+    alert(computedStyle.color); // rgb(255, 0, 0)
+</script>
+
+</body>

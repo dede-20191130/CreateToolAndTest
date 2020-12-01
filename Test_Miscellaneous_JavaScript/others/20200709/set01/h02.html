@@ -1,0 +1,12 @@
+<a href="http://w3.org">the browser will go to w3.org</a>
+<script>
+    function handler() {
+        alert("...");
+        return false;
+    }
+
+    document.querySelector("a").addEventListener("click", (e) => {
+        if (!handler()) e.preventDefault();
+    });
+</script>
+

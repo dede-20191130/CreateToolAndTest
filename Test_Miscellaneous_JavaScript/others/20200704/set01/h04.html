@@ -1,0 +1,18 @@
+<!-- "name" を表示する div をマークします -->
+<div show-info="name">aaa</div>
+<!-- ここは age です -->
+<div show-info="age">bbb</div>
+
+<script>
+    // コードは、マークのある要素を探し、要求されたものを表示します
+    let user = {
+        name: "Pete",
+        age: 25
+    };
+
+    for (let div of document.querySelectorAll('[show-info]')) {
+        // フィールドに、対応する情報を挿入します
+        let field = div.getAttribute('show-info');
+        div.innerHTML = user[field]; // Pete, then age
+    }
+</script>

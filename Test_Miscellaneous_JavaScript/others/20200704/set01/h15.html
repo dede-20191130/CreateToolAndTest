@@ -1,0 +1,75 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <style>
+        table {
+            border-collapse: collapse;
+        }
+
+        td,
+        th {
+            border: 1px solid black;
+            padding: 3px;
+            text-align: center;
+        }
+
+        th {
+            font-weight: bold;
+            background-color: #E6E6E6;
+        }
+    </style>
+</head>
+
+<body>
+
+
+<div id="calendar"></div>
+
+<script>
+    function createCalendar(elem, year, month) {
+        // ...your code that generates the calendar in elem...
+        function appendThTd(parent, isTh, text) {
+            let ele = isTh ? document.createElement("th") : document.createElement("td");
+            ele.textContent = text;
+            parent.append(ele);
+        }
+
+        let table = document.createElement("table");
+        // ヘッダ行
+        let hedTr = document.createElement("tr");
+        let arrWeekday = ["MO", "TU", "WE", "TH", "FR", "SA", "SU"];
+        for (let w of arrWeekday) {
+            appendThTd(hedTr, true, w);
+        }
+        table.append(hedTr);
+
+        // 番号行
+        let fstWeek = new Date(year, month - 1, 1).getDay();
+        if (!fstWeek) fstWeek = 7;
+        let lastDay = new Date(year, month, 0).getDate();
+
+        for (let i = 0; i < 6; i++) {
+            let numTr = document.createElement("tr");
+            for (let j = 0; j < 7; j++) {
+                // 最初の行の余白を考慮した並び
+                if (i * 7 + (j + 1 - fstWeek + 1) <= lastDay) {
+                    let text = i * 7 + (j + 1) < fstWeek ? "" : i * 7 + (j + 1) - fstWeek + 1;
+                    appendThTd(numTr, false, text);
+                }else{
+                    break;
+                }
+            }
+            table.append(numTr);
+        }
+        elem.append(table);
+
+    }
+
+    createCalendar(calendar, 2012, 9);
+    createCalendar(calendar, 2020, 7);
+    createCalendar(calendar, 2020, 8);
+</script>
+
+</body>
+</html>

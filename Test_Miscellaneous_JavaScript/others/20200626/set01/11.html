@@ -1,0 +1,18 @@
+<script>
+    let urls = [
+        'https://api.github.com/users/iliakan',
+        'https://api.github.com/users/remy',
+        'https://api.github.com/users/jeresig',
+        'http://no-such-url'
+    ];
+
+    Promise.all(urls.map(url => fetch(url).catch(err => err)))
+        // 各レスポンスに対し、そのステータスを表示
+        .then(responses => {
+            // 3 つの url => 3 つの配列要素
+            console.log(responses[0].status); // 200
+            console.log(responses[3]); // TypeError: failed to fetch (内容は異なるかもしれません)
+            console.log(responses[1].status); // 200
+            console.log(responses[2]); // TypeError: failed to fetch (内容は異なるかもしれません)
+        });
+</script>

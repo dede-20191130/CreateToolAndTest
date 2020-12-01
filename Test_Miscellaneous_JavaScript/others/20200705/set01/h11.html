@@ -1,0 +1,38 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="utf-8">
+    <style>
+        .green {
+            color: green;
+        }
+
+        .menu.open {
+
+        }
+    </style>
+</head>
+<body>
+
+<div>
+    <span id="toggleMenu"><span class="menu close green">▶</span> <span class="menu open green" hidden>▼</span> Sweeties
+        (click me)!</span>
+</div>
+<ul class="menu open" hidden>
+    <li>Cake</li>
+    <li>Donut</li>
+    <li>Honey</li>
+</ul>
+<script>
+    document.querySelector("#toggleMenu").addEventListener("click", (e) => {
+        let menuClose = document.querySelectorAll(".menu.close");
+        let menuOpen = document.querySelectorAll(".menu.open");
+
+        let isClosed = menuClose[0].hidden;
+
+        Array.from(menuClose).forEach((ele) => (ele.hidden = !isClosed));
+        Array.from(menuOpen).forEach((ele) => (ele.hidden = isClosed));
+    })
+</script>
+</body>
+</html>

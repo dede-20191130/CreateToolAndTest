@@ -1,0 +1,12 @@
+<ul>
+
+</ul>
+<script>
+    let content = prompt("input list text");
+    while (content !== null) {
+        let newLi = document.createElement("li");
+        newLi.textContent = content;
+        document.querySelector("ul").append(newLi);
+        content = prompt("input list text");
+    }
+</script>

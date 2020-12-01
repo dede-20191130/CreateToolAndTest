@@ -1,0 +1,12 @@
+<body data-about="Elephants">
+<div data-foo="asd">
+
+</div>
+
+</body>
+<script>
+    console.log(document.body.dataset.about); // Elephants
+    console.log(document.body.dataset["about"]); // Elephants
+    console.log(document.querySelector("div").dataset["-foo"])
+    console.log(document.querySelector("div").dataset.foo)
+</script>

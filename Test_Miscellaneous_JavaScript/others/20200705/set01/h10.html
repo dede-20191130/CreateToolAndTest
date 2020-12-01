@@ -1,0 +1,83 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <style>
+        #field {
+            position: relative;
+            width: 200px;
+            height: 150px;
+            border: 10px solid black;
+            background-color: #00FF00;
+            overflow: hidden;
+            cursor: pointer;
+        }
+
+        img {
+            width: 20px;
+            position: absolute;
+            transition-property: width, height, left, top;
+            transition-duration: 1s;
+            left: 0;
+            top: 0;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body style="height:2000px">
+
+Click on a field to move the ball there.
+<br> The ball should never leave the field.
+
+
+<div id="field">
+    <img src="https://en.js.cx/clipart/ball.svg" id="ball"> . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . .
+</div>
+<script>
+    // 要素のドキュメント座標を取得
+    function getCoords(elem) {
+        let box = elem.getBoundingClientRect();
+
+        return {
+            top: box.top + pageYOffset,
+            left: box.left + pageXOffset
+        };
+    }
+
+    // ["#field", "#ball"].forEach((item) => {
+    ["#field"].forEach((item) => {
+        document.querySelector(item).addEventListener("click", (e) => {
+                let ball = document.querySelector("#ball");
+                let field = document.querySelector("#field");
+                let fieldWinCoods = field.getBoundingClientRect();
+                let [deltaX, deltaY] = [
+                    -(fieldWinCoods.left + field.clientLeft + ball.offsetWidth / 2) + e.clientX,
+                    -(fieldWinCoods.top + field.clientTop + ball.offsetHeight / 2) + e.clientY
+                ]
+
+                // 境界線の制限
+                if (deltaX < 0) deltaX = 0;
+                if (deltaX > field.clientWidth - ball.offsetWidth) deltaX = field.clientWidth - ball.offsetWidth;
+                if (deltaY < 0) deltaY = 0;
+                if (deltaY > field.clientHeight - ball.offsetHeight) deltaY = field.clientHeight - ball.offsetHeight;
+
+                ball.style.left = deltaX + "px";
+                ball.style.top = deltaY + "px";
+
+            }
+        )
+
+        // document.querySelector(item).addEventListener("mouseover", (e) => (document.body.style.cursor = "pointer"))
+        // document.querySelector(item).addEventListener("mouseout", (e) => (document.body.style.cursor = "auto"))
+
+    })
+</script>
+
+</body>
+</html>

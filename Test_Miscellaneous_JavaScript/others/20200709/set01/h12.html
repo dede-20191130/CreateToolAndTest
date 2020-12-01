@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <style>
+        .slider {
+            border-radius: 5px;
+            background: #E0E0E0;
+            background: linear-gradient(left top, #E0E0E0, #EEEEEE);
+            width: 310px;
+            height: 15px;
+            margin: 5px;
+        }
+
+        .thumb {
+            width: 10px;
+            height: 25px;
+            border-radius: 3px;
+            position: relative;
+            left: 10px;
+            top: -5px;
+            background: blue;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+
+<div id="slider" class="slider">
+    <div class="thumb"></div>
+</div>
+
+<script>
+    // ...your code...
+    document.ondragstart = () => false;
+    document.onmouseup = () => (console.log(new Date()));
+
+    let thumb = document.querySelector(".thumb");
+
+    let initialCoodsThumb = getCoords(thumb);
+    initialCoodsThumb.left -= parseInt(getComputedStyle(thumb).left);
+    initialCoodsThumb.top -= parseInt(getComputedStyle(thumb).top);
+
+    thumb.addEventListener("mousedown", onMouseDownThumb);
+
+    function onMouseDownThumb(eve) {
+        let shiftCoods = getShiftCoods(eve, eve.target);
+
+        function isProperValThumb(xCood) {
+            let slider = document.querySelector("#slider");
+            if (xCood < 0) xCood = 0;
+            if (xCood > slider.offsetWidth - thumb.offsetWidth) xCood = slider.offsetWidth - thumb.offsetWidth;
+            return xCood;
+        }
+
+        moveAtForXY(thumb, eve, initialCoodsThumb, shiftCoods.left, null, isProperValThumb);
+
+        function onMouseMove(eve) {
+            moveAtForXY(thumb, eve, initialCoodsThumb, shiftCoods.left, null, isProperValThumb);
+        }
+
+        document.addEventListener("mousemove", onMouseMove);
+
+        let restoredFunc = document.onmouseup;
+        document.onmouseup = function () {
+            document.removeEventListener('mousemove', onMouseMove);
+            document.onmouseup = restoredFunc;
+        }
+    }
+
+    function getCoords(elem) {
+        let box = elem.getBoundingClientRect();
+
+        return {
+            top: box.top + pageYOffset,
+            left: box.left + pageXOffset
+        };
+    }
+
+    function getShiftCoods(eve, ele) {
+        let shiftX = eve.clientX - ele.getBoundingClientRect().left;
+        let shiftY = eve.clientY - ele.getBoundingClientRect().top;
+        return {
+            left: shiftX,
+            top: shiftY
+        };
+    }
+
+    function moveAtForXY(ele, eve, initialCoods, shiftX = null, shiftY = null, isProperValX = null, isProperValY = null) {
+        let newLeft, newTop;
+        if (shiftX) {
+            newLeft = eve.pageX - initialCoods.left - shiftX;
+            if (isProperValX) newLeft = isProperValX(newLeft);
+            ele.style.left = newLeft + 'px';
+        }
+        if (shiftY) {
+            newTop = eve.pageY - initialCoods.top - shiftY;
+            if (isProperValY) newTop = isProperValY(newTop);
+            ele.style.top = newTop + 'px';
+
+        }
+    }
+
+</script>
+
+</body>
+</html>

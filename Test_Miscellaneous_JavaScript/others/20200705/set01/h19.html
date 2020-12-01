@@ -1,0 +1,103 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <style>
+        table {
+            border-collapse: collapse;
+        }
+
+        th, td {
+            border: 1px solid black;
+            padding: 4px;
+        }
+
+        th {
+            cursor: pointer;
+        }
+
+        th:hover {
+            background: yellow;
+        }
+    </style>
+</head>
+
+<body>
+
+<table id="grid">
+    <thead>
+    <tr>
+        <th data-type="number">Age</th>
+        <th data-type="string">Name</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td>5</td>
+        <td>John</td>
+    </tr>
+    <tr>
+        <td>2</td>
+        <td>Pete</td>
+    </tr>
+    <tr>
+        <td>12</td>
+        <td>Ann</td>
+    </tr>
+    <tr>
+        <td>9</td>
+        <td>Eugene</td>
+    </tr>
+    <tr>
+        <td>1</td>
+        <td>Ilya</td>
+    </tr>
+    </tbody>
+</table>
+
+<script>
+    // ...your code...
+    class Sorter {
+        constructor(ele) {
+            this._ele = ele;
+            ele.addEventListener("click", this.actClicked.bind(this))
+        }
+
+        actClicked(e) {
+            let type = e.target.dataset.type;
+            if (!type) return;
+            this[type]();
+        }
+
+        number() {
+            // alert(e.target.firstChild.textContent);
+            // let tbody = this._ele.querySelector("tbody");
+            // let arrRows = Array.from(tbody.rows);
+            // arrRows.sort((a, b) => (Number(a.cells[0].textContent) > Number(b.cells[0].textContent) ? 1 : -1));
+            // tbody.append(...arrRows);
+            this.sortBase((a, b) => (Number(a.cells[0].textContent) > Number(b.cells[0].textContent) ? 1 : -1));
+        }
+
+        string() {
+            // alert(e.target.firstChild.textContent);
+            // let tbody = this._ele.querySelector("tbody");
+            // let arrRows = Array.from(tbody.rows);
+            // arrRows.sort((a, b) => (a.cells[1].textContent > b.cells[1].textContent ? 1 : -1));
+            // tbody.append(...arrRows);
+            this.sortBase((a, b) => (a.cells[1].textContent > b.cells[1].textContent ? 1 : -1));
+        }
+
+        sortBase(compareFunc) {
+            let tbody = this._ele.querySelector("tbody");
+            let arrRows = Array.from(tbody.rows);
+            arrRows.sort(compareFunc);
+            tbody.append(...arrRows);
+        }
+    }
+
+    new Sorter(document.querySelector("#grid"));
+</script>
+
+</body>
+</html>

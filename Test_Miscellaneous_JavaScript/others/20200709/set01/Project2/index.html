@@ -1,0 +1,41 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="soccer.css">
+</head>
+
+<body>
+
+<h2>サッカーフィールの周りにスーパーヒーローを配置します</h2>
+
+<p>スーパーヒーローとボールは "draggable" クラスをもつ要素です。それらを本当にドラッグ可能にします。</p>
+
+<p>重要: ウィンドウのドラッグを制限します。もしドラッグ可能な要素がウィンドウの上下端に到達すると、ページをスクロールしてさらにドラッグできます。</p>
+
+<p>画面全体がドキュメント全体に収まる大きさの場合 -- テストをするため、縦スクロールが出るようウィンドウを小さくしてください。</p>
+
+<p>このタスクでは、縦スクロールを処理するだけで十分です。通常水平スクロールはなく、もし必要な場合は同じような処理が行われます。</p>
+
+<p>もう１点: ヒーローは決してページから離れません。もしドキュメントの端に到達した場合、ドキュメントの外にはドラッグされません。</p>
+
+<div id="field">
+
+</div>
+
+<div class="hero draggable" id="hero1"></div>
+<div class="hero draggable" id="hero2"></div>
+<div class="hero draggable" id="hero3"></div>
+<div class="hero draggable" id="hero4"></div>
+<div class="hero draggable" id="hero5"></div>
+<div class="hero draggable" id="hero6"></div>
+
+<img src="https://en.js.cx/clipart/ball.svg" class="draggable">
+
+<div style="clear:both"></div>
+
+<script src="soccer.js"></script>
+</body>
+
+</html>

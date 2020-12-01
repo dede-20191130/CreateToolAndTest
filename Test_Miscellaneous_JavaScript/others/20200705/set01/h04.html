@@ -1,0 +1,44 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <style>
+        #field {
+            width: 200px;
+            border: 10px groove black;
+            background-color: #00FF00;
+            position: relative;
+        }
+
+        #ball {
+            position: absolute;
+        }
+
+
+        img {
+            width: 80px;
+        }
+    </style>
+</head>
+
+<body>
+
+
+<div id="field">
+    <img src="https://en.js.cx/clipart/ball.svg" id="ball"> . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . .
+</div>
+
+<script>
+    window.onload = () => {
+        let ball = document.querySelector("#ball");
+        ball.style.left = (document.querySelector("#field").scrollWidth - ball.offsetWidth) / 2 + "px";
+        ball.style.top = (document.querySelector("#field").scrollHeight - ball.offsetHeight) / 2 + "px";
+    }
+</script>
+</body>
+
+</html>

@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+
+<head>
+    <meta charset="utf-8">
+    <style>
+        #base {
+            position: relative;
+            background-color: lightgray;
+            border-width: 2px;
+            border-color: gray;
+            border-radius: 15px;
+            width: 480px;
+            height: 130px;
+        }
+
+        #frame {
+            position: absolute;
+            left: 45px;
+            width: 400px;
+            height: 130px;
+            overflow: hidden;
+        }
+
+        .arrow {
+            position: absolute;
+            top: 53px;
+            padding: 0;
+            background: #ddd;
+            border-radius: 15px;
+            border: 1px solid gray;
+            font-size: 24px;
+            line-height: 24px;
+            color: #444;
+            display: inline-block;
+        }
+
+        .arrow.left {
+            left: 10px;
+        }
+
+        .arrow.right {
+            left: 445px;
+        }
+
+        .arrow:focus {
+            outline: none;
+        }
+
+        .arrow:hover {
+            background: #ccc;
+            cursor: pointer;
+        }
+
+        ul {
+            position: absolute;
+            left: 0;
+            height: 130px;
+            width: 9999px;
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            font-size: 0;
+            display: inline-block;
+            transition-property: width, height, left, top;
+            transition-duration: 500ms;
+        }
+
+        ul img {
+            width: 130px;
+            height: 130px;
+            display: block; /* removes extra space near images */
+        }
+
+        ul li {
+            display: inline-block;
+
+            /* removes extra space between list items*/
+        }
+    </style>
+</head>
+
+<body>
+
+<!-- create your markup and styles -->
+
+<div id="base">
+
+    <button class="arrow left">⇦</button>
+
+
+    <div id="frame">
+        <ul id="carousel">
+            <li><img src="https://en.js.cx/carousel/1.png"></li>
+            <li><img src="https://en.js.cx/carousel/2.png"></li>
+            <li><img src="https://en.js.cx/carousel/3.png"></li>
+            <li><img src="https://en.js.cx/carousel/4.png"></li>
+            <li><img src="https://en.js.cx/carousel/5.png"></li>
+            <li><img src="https://en.js.cx/carousel/6.png"></li>
+            <li><img src="https://en.js.cx/carousel/7.png"></li>
+            <li><img src="https://en.js.cx/carousel/8.png"></li>
+            <li><img src="https://en.js.cx/carousel/9.png"></li>
+            <li><img src="https://en.js.cx/carousel/10.png"></li>
+            <!--                        <li><img src="https://en.js.cx/carousel/10.png"></li>-->
+        </ul>
+    </div>
+
+
+    <button class="arrow right">⇨</button>
+</div>
+<script>
+    // label the images to visually track them, just for convenience,
+    // this code can be removed
+    let i = 1;
+    for (let li of carousel.querySelectorAll('li')) {
+        li.style.position = 'relative';
+        li.insertAdjacentHTML('beforeend', `<span style="position:absolute;left:0;top:0">${i}</span>`);
+        i++;
+    }
+    i--;
+    // ...your code to make carousel alive!
+    // Array.from(document.querySelectorAll(".arrow")).forEach((ele) => {
+    //     ele.addEventListener("click", (e) => {
+    //
+    //     })
+    // })
+    // let endFlg = true;
+    let imgWidth = document.querySelector("img").offsetWidth;
+    document.querySelector(".arrow.right").addEventListener("click", (e) => {
+
+        let deltaX, result;
+        let carousel = document.querySelector("#carousel");
+
+        // if (carousel.offsetLeft < -imgWidth * (i - 4)) {
+        //     return;
+        // } else if (carousel.offsetLeft < -imgWidth * (i - 5)) {
+        //     deltaX = imgWidth;
+        // } else if (carousel.offsetLeft < -imgWidth * (i - 6)) {
+        //     deltaX = imgWidth * 2;
+        // } else {
+        //     deltaX = imgWidth * 3;
+        // }
+
+        deltaX = imgWidth * 3;
+        result = Math.max(carousel.offsetLeft - deltaX, -imgWidth * (i - 3));
+
+        carousel.style.left = result + "px";
+
+
+    })
+
+    document.querySelector(".arrow.left").addEventListener("click", (e) => {
+        let deltaX, result;
+        let carousel = document.querySelector("#carousel");
+
+        // if (carousel.offsetLeft > -imgWidth) {
+        //     return;
+        // } else if (carousel.offsetLeft > -imgWidth * 2) {
+        //     deltaX = imgWidth;
+        // } else if (carousel.offsetLeft > -imgWidth * 3) {
+        //     deltaX = imgWidth * 2;
+        // } else {
+        //     deltaX = imgWidth * 3;
+        // }
+
+        deltaX = imgWidth * 3;
+        result = Math.min(carousel.offsetLeft + deltaX, 0);
+
+        carousel.style.left = result + "px";
+
+    })
+
+
+</script>
+
+</body>
+</html>

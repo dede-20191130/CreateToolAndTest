@@ -1,0 +1,12 @@
+<h1 id="elem">Hello for John!</h1>
+
+<script>
+    // イベントと一緒にハンドラに来る追加の詳細情報です
+    elem.addEventListener("hello", function (event) {
+        alert(event.detail.name);
+    });
+
+    elem.dispatchEvent(new CustomEvent("hello", {
+        detail: {name: "John"}
+    }));
+</script>

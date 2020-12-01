@@ -1,0 +1,62 @@
+<!DOCTYPE HTML>
+<html>
+<style>
+    .hour {
+        color: red
+    }
+
+    .min {
+        color: green
+    }
+
+    .sec {
+        color: blue
+    }
+</style>
+
+<body>
+<div id="clock">
+    <span class="hour">
+        00
+    </span>
+    :
+    <span class="min">
+        00
+    </span>
+    :
+    <span class="sec">
+        00
+    </span>
+</div>
+<!-- click on this button calls clockStart() -->
+<input type="button" onclick="clockStart()" value="Start">
+
+<!-- click on this button calls clockStop() -->
+<input type="button" onclick="clockStop()" value="Stop">
+<script>
+    let timidId;
+
+    function setTimes() {
+        let now = new Date();
+        let hourEle = document.querySelector(".hour");
+        hourEle.innerHTML = now.getHours().toString().padStart(2, "0");
+        let minEle = document.querySelector(".min");
+        minEle.innerHTML = now.getMinutes().toString().padStart(2, "0");
+        let secEle = document.querySelector(".sec");
+        secEle.innerHTML = now.getSeconds().toString().padStart(2, "0");
+
+    }
+
+    function clockStart() {
+        setTimes();
+        timidId = setInterval(() => (setTimes()), 1000);
+    }
+
+    function clockStop() {
+        clearInterval(timidId);
+    }
+
+    clockStart();
+</script>
+</body>
+</html>

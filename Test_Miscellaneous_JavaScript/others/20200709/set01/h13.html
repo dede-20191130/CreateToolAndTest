@@ -1,0 +1,33 @@
+<script>
+    function runOnKeys(func, code1, code2, ...code_n) {
+        let codeHouse = {};
+        [code1, code2, ...code_n].forEach((code) => {
+            codeHouse[code] = false;
+        })
+        console.log(codeHouse)
+
+        document.addEventListener("keydown", onKeydown);
+        document.addEventListener("keyup", onKeyup);
+
+        function onKeydown(eve) {
+            if (codeHouse.hasOwnProperty(eve.code)) codeHouse[eve.code] = true;
+            if (!Object.values(codeHouse).includes(false)) {
+                func();
+                Object.keys(codeHouse).forEach((code) => (codeHouse[code] = false));
+            }
+        }
+
+        function onKeyup(eve) {
+            if (codeHouse.hasOwnProperty(eve.code)) codeHouse[eve.code] = false;
+        }
+
+    }
+
+    runOnKeys(
+        () => alert(new Date()),
+        "KeyQ",
+        "KeyW",
+        "Delete",
+        "Period"
+    );
+</script>

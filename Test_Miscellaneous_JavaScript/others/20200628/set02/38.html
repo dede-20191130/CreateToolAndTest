@@ -1,0 +1,20 @@
+<html>
+
+<head>
+    <script>
+        alert("From HEAD: " + document.body); // null, まだ <body> はありません
+        function f() {
+            return "From HEAD2: " + document.body;
+        }
+    </script>
+</head>
+
+<body>
+
+<script>
+    alert("From BODY: " + document.body); // HTMLBodyElement, 今は存在します
+    alert(f());
+</script>
+
+</body>
+</html>

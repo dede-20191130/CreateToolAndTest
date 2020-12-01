@@ -1,0 +1,21 @@
+<html>
+<body>
+<div>Begin</div>
+
+<ul>
+    <li>Information</li>
+</ul>
+
+<div>End</div>
+
+<script>
+    for (let i = 0; i < document.body.childNodes.length; i++) {
+        console.log(document.body.childNodes[i]); // Text, DIV, Text, UL, ..., SCRIPT
+    }
+    for (let cnt of document.body.children) {
+        console.log(cnt);
+    }
+</script>
+...他の要素...
+</body>
+</html>

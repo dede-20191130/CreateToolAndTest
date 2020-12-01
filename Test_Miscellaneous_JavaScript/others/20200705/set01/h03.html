@@ -1,0 +1,18 @@
+<div style="height: 2000px">absoluteとrelativeの使い方
+    実際にWebサイトを制作すると、親要素を基準にして子要素を移動させたいという場合が多いです。しかし要素に空白を残したくないからと、子要素にだけ「absolute」を記述してしまうと、思ったように表示することができません。
+
+    たとえば、以下のようにparent（青いボックス）の子要素であるchild（緑のボックス）に { position:absolute; top:20px; left:150px; } を指定すると、以下のように表示されてしまいます。
+
+
+    これは、親要素ではなく画面左上を起点に子要素が移動してしまっているからです。
+
+    親要素を基準にするためには、親要素に「position:relative;」を記述します。こうすることで、子要素が親要素を基準に移動することができます。
+
+</div>
+
+<script>
+    function getScrollBottom() {
+        let e = document.querySelector("div");
+        return e.scrollHeight - e.scrollTop;
+    }
+</script>

@@ -1,0 +1,12 @@
+<ol id="elem">
+    <li>Hello</li>
+    <li>World</li>
+</ol>
+
+<script>
+    function clear(elem) { /* your code */
+        Array.from(elem.children).forEach((ele) => (ele.remove()));
+    }
+
+    clear(elem); // リストをクリアします
+</script>

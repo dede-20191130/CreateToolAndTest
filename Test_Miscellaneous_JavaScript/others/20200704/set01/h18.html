@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+<style>
+    table {
+        border-collapse: collapse;
+    }
+
+    td,
+    th {
+        border: 1px solid black;
+        padding: 3px;
+        text-align: center;
+    }
+
+    th {
+        font-weight: bold;
+        background-color: #E6E6E6;
+    }
+</style>
+<body>
+
+<table id="table">
+    <tr>
+        <th>Name</th>
+        <th>Surname</th>
+        <th>Age</th>
+    </tr>
+    <tr>
+        <td>John</td>
+        <td>Smith</td>
+        <td>20</td>
+    </tr>
+    <tr>
+        <td>Pete</td>
+        <td>Brown</td>
+        <td>18</td>
+    </tr>
+    <tr>
+        <td>Ann</td>
+        <td>Lee</td>
+        <td>15</td>
+    </tr>
+    <tr>
+        <td>Mike</td>
+        <td>Opal</td>
+        <td>14</td>
+    </tr>
+</table>
+<div style="margin-bottom: 2rem"></div>
+<div>
+    <div>
+        sort by
+    </div>
+    <select id="sortItem" onchange="sortTable(this);">
+        <option value="">------</option>
+    </select>
+</div>
+
+<script>
+    window.onload = function () {
+        let selectEle = document.querySelector("#sortItem");
+        Array.from(document.querySelector("#table").querySelectorAll("th")).forEach((ele) => {
+            let optionE = document.createElement("option");
+            optionE.setAttribute("value", ele.textContent);
+            optionE.textContent = ele.textContent;
+            selectEle.append(optionE);
+        })
+
+    }
+
+    function sortTable(ele) {
+        function isNum(num) {
+            return Number.isFinite(Number(num));
+        }
+
+        function compare(a, b) {
+            if (isNum(a) && isNum(b)) {
+                a = Number(a);
+                b = Number(b);
+            }
+            if (a > b) return 1;
+            if (a === b) return 0;
+            if (a < b) return -1;
+        }
+
+        let sortKeyNum;
+        let tableE = document.querySelector("#table");
+        switch (ele.value) {
+            case "":
+                return;
+            case "Name":
+                sortKeyNum = 0;
+                break;
+            case "Surname":
+                sortKeyNum = 1;
+                break;
+            case "Age":
+                sortKeyNum = 2;
+                break;
+        }
+        let trSet = Array.from(tableE.rows);
+        trSet = trSet.slice(1, trSet.length);
+        trSet.sort((ele1, ele2) => {
+            return compare(ele1.cells[sortKeyNum].textContent, ele2.cells[sortKeyNum].textContent);
+        })
+        trSet.forEach((ele) => {
+            tableE.append(ele);
+        })
+    }
+</script>
+
+</body>
+</html>
